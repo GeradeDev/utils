@@ -1,0 +1,52 @@
+{
+  "id": "6167b3b0-4e39-11ea-aaee-6d41ddcd677d",
+  "name": "NugetVersionUpdater",
+  "friendlyName": "Nuget Version Updater",
+  "description": "Increment Nuget package version number from the version currently on nuget.org",
+  "author": "Gerade Geldenhuys",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "17"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "NugetVersionUpdater $(message)",
+  "inputs": [
+    {
+      "name": "packageName",
+      "type": "string",
+      "label": "Package Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name of package currently on Nuget.org"
+    },
+    {
+      "name": "maxIncrement",
+      "type": "int",
+      "label": "Max Increment Value",
+      "defaultValue": 10,
+      "required": true,
+      "helpMarkDown": "The maximum value the Pactch version can increment to before incrementing the Minor version number and resetting the Patch version back to 0"
+    },
+    {
+      "name": "pipelineVariable",
+      "type": "string",
+      "label": "Pipeline Variable Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The Name of the variable to be used when you set the Package version once you Nuget Pack your library in a later step."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "task.ps1"
+    }
+  }
+}
