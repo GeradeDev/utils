@@ -14,7 +14,7 @@
   "version": {
     "Major": "1",
     "Minor": "0",
-    "Patch": "17"
+    "Patch": "26"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "NugetVersionUpdater $(message)",
@@ -46,7 +46,11 @@
   ],
   "execution": {
     "PowerShell3": {
-      "target": "task.ps1"
+      "target": "task.ps1",
+      "platforms": [
+        "windows",
+        "ubuntu"
+      ]
     }
   }
 }

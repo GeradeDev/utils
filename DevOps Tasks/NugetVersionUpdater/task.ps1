@@ -50,10 +50,9 @@ try {
     Write-Host "New Version for Package: " $newVersion
     
     Write-Host "Set environment variable to ($newVersion)"
-    $env:pipelineVariable = $newVersion
-
-    Get-ChildItem Env:pipelineVariable
-    Write-Host "New Package version $($env:pipelineVariable)"
+    Write-Output "##vso[task.setvariable variable=$pipelineVariable;]$newVersion"
+    
+    Write-Host "New Package version $newVersion"
     
 } finally {
     Trace-VstsLeavingInvocation $MyInvocation
